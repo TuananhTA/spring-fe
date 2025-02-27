@@ -1,9 +1,0 @@
-version: "3.8"
-
-services:
-  app-spring-tiktok-c:
-    build: .
-    container_name: tiktok-connect-fe
-    ports:
-      - "8082:8082"
-    restart: always

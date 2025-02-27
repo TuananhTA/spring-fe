@@ -39,7 +39,7 @@ jobs:
             docker rmi spring-be-connect-ig
             
             docker build -t spring-be-connect-ig .
-            docker run -d --name spring-be-connect -p 8082:8082 spring-be-connect-ig
+            docker run -d --name spring-be-connect -p 8081:8081 spring-be-connect-ig
             
             docker container prune -f
             docker image prune -a -f

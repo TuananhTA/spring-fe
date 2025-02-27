@@ -1,14 +1,8 @@
-# Chọn image base là Java
 FROM openjdk:17-jdk-slim
 
-# Thiết lập thư mục làm việc
 WORKDIR /app
 
-# Copy mã nguồn vào container
-COPY . /app
+COPY tiktok-connect-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8082
 
-# Build dự án Spring Boot
-RUN ./mvnw clean install
-
-# Chạy ứng dụng Spring Boot
-CMD ["java", "-jar", "target/tiktok-connect-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

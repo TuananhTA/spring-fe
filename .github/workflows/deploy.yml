@@ -33,19 +33,19 @@ jobs:
             
             # Pull latest code from the repository
             git pull origin main
+            
+            docker stop spring-be-connect
+            docker rm spring-be-connect
+            docker rmi spring-be-connect-ig
+            
+            docker build -t spring-be-connect-ig .
+            docker run -d --name spring-be-connect -p 8082:8082 spring-be-connect-ig
+            
+            docker container prune -f
+            docker image prune -a -f
 
-            # Dừng và xóa các container cũ
-            docker-compose down
             
-            # Làm sạch các image cũ (nếu cần)
-            docker system prune -f
             
-            # Xây dựng lại các container với các thay đổi mới
-            docker-compose build
-
-            # Chạy lại container trong chế độ detached (nền)
-            docker-compose up -d
             
-            docker image prune -f
 
 

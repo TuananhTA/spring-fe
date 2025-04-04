@@ -20,7 +20,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PASSWORD }}
           source: "."
-          target: "/home/petd-git/spring-be/src-be"
+          target: "/home/petd/tiktok-connect/be"
 
       - name: SSH vào VPS và deploy Docker
         uses: appleboy/ssh-action@v0.1.4
@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
-            cd /home/petd-git/spring-be/src-be
+            cd /home/petd/tiktok-connect/be
             
             # Pull latest code from the repository
             git pull origin main
